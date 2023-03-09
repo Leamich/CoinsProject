@@ -6,24 +6,24 @@ public class CoinsPresenter : MonoBehaviour
     [SerializeField] private Text _render;
     [SerializeField] private Animator _animator;
 
-    private CoinsModel _model = new CoinsModel();
+    private CoinsModel _model;
+    private Root _root;
 
-    private void Awake()
+    public void Init(CoinsModel model, Root root)
     {
-        _model.Amount = PlayerPrefs.GetInt("Coins", 0);
+        _model = model;
+        _root = root;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Contains("Coin"))
-            OnPickupCoin();
+            _root.OnPickupCoin();
     }
 
     public void OnPickupCoin()
     {
-        _model.OnPickupCoin();
         _render.text = _model.GetText();
         _animator.SetTrigger("OnPickupCoin");
-        PlayerPrefs.SetInt("Coins", _model.Amount);
     }
 }

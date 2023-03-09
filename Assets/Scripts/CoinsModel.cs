@@ -11,6 +11,11 @@ public class CoinsModel
         }
     }
 
+    public CoinsModel(int amount)
+    {
+        _amount = amount;
+    }
+
     public string GetText()
     {
         return $"Coins: {_amount}";
