@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Coins : MonoBehaviour
+public class CoinsPresenter : MonoBehaviour
 {
     [SerializeField] private Text _render;
     [SerializeField] private Animator _animator;
