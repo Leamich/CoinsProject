@@ -25,6 +25,7 @@ public class CoinsModel
     {
         _amount++;
     }
+
     public bool TryDiscard(int price)
     {
         if (_amount < price)
